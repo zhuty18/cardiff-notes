@@ -1,15 +1,11 @@
-good_people(bob;tina;bert;jane;alyssa).
-bad_people(marina;william).
+people(marina;william;bob;tina;bert;jane;alyssa).
+table(1..3).
 
-table(X,Y):- good_people(X),good_people(Y),X!=Y.
-table(X,Y):- good_people(X),bad_people(Y).
-table(X,Y):- table(Y,X).
-table(A,B,C,D,E,F):- table(A,B),table(C,D),table(E,F),not table(marina,william), A!=C,A!=D,A!=E,A!=F,B!=C,B!=D,B!=E,B!=F,C!=E,C!=F,D!=E,D!=F.
-table(A,B,C,D,E,F):- table(A,B,E,F,C,D).
-table(A,B,C,D,E,F):- table(C,D,A,B,E,F).
-table(A,B,C,D,E,F):- table(C,D,E,F,A,B).
-table(A,B,C,D,E,F):- table(E,F,A,B,C,D).
-table(A,B,C,D,E,F):- table(E,F,C,D,A,B).
+2{at(P,T):people(P)}3:-table(T).
+1{at(P,T):table(T)}1:-people(P).
 
-#show table/6.
+same_table(P1,P2):-at(P1,T),at(P2,T),P1!=P2.
+:- same_table(marina,william).
+% :- at(marina,T), at(william,T).
 
+#show at/2.
