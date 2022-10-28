@@ -1,6 +1,6 @@
 person(dana;cody;abby;bess).
 
-{like(X,Y)}16:-person(X),person(Y).
+{like(X,Y)}:-person(X),person(Y).
 
 like(dana,cody).
 :-like(abby,dana).

@@ -2,10 +2,10 @@ first_name(abner;bruce;chuck;duane).
 last_name(engels;foster;gunter;halevy).
 pet(iguana;jackal;llama;cobra).
 
-1{full_name(F,L):last_name(L)}1:-first_name(F).
-1{full_name(F,L):first_name(F)}1:- last_name(L).
-1{owns(F,P):pet(P)}1:-first_name(F).
-1{owns(F,P):first_name(F)}1:-pet(P).
+{full_name(F,L):last_name(L)}=1:-first_name(F).
+{full_name(F,L):first_name(F)}=1:-last_name(L).
+{owns(F,P):pet(P)}=1:-first_name(F).
+{owns(F,P):first_name(F)}=1:-pet(P).
 
 :-full_name(abner,engels).
 :-full_name(abner,foster).
