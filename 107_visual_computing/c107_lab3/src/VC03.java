@@ -105,9 +105,12 @@ public class VC03 {
 			//******************************************
 			//Add transformation, binding and drawing code here 
 		    //to put the second object (teapot) to appropriate place
-			T.translate(0,0,-1);
-			T.scale(0.5f,0.5f,0.5f);
-//			T.rotateX(90);
+			T.initialize();
+			T.translate(0,0,1.5f);
+			T.scale(0.3f,0.3f,0.3f);
+			T.rotateX(270);
+
+			gl.glUniformMatrix4fv( ModelView, 1, true, T.getTransformv(), 0 );
 
 			idPoint=1;
 			idBuffer=1;
